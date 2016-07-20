@@ -3,6 +3,7 @@ module Main exposing (main)
 import Html
 import Html.App
 import Benchmark
+import FastList
 
 
 type alias Model =
@@ -20,22 +21,36 @@ main =
         , view = view
         , subscriptions = subscriptions
         }
-        |> Benchmark.run [ mapSuite ]
+        |> Benchmark.run
+            [ makeSuite 10
+            , makeSuite 100
+            , makeSuite 10000
+            , makeSuite 1000000
+              --, makeSuite 10000000
+            ]
 
 
-mapSuite : Benchmark.Suite
-mapSuite =
-    Benchmark.suite "map"
-        [ Benchmark.bench "map" testMap ]
+makeSuite : Int -> Benchmark.Suite
+makeSuite size =
+    let
+        testdata =
+            [1..size]
 
+        fn n =
+            n + 1
 
-testdata =
-    [1..10000]
+        testMap : () -> List Int
+        testMap =
+            \() -> List.map fn testdata
 
-
-testMap : () -> List Int
-testMap =
-    \() -> List.map ((+) 1) testdata
+        testMap' : () -> List Int
+        testMap' =
+            \() -> FastList.map fn testdata
+    in
+        Benchmark.suite ("size " ++ toString size)
+            [ Benchmark.bench "map" testMap
+            , Benchmark.bench "map'" testMap'
+            ]
 
 
 init : ( Model, Cmd Msg )
