@@ -26,27 +26,26 @@
         </style>
     </head>
     <body>
-        <script src="//d3js.org/d3.v3.min.js"></script>
+        <script src="//d3js.org/d3.v4.min.js"></script>
         <script>
          var margin = {top: 20, right: 80, bottom: 30, left: 80},
              width = 960 - margin.left - margin.right,
              height = 500 - margin.top - margin.bottom;
          
-         var x = d3.scale.log()
+         var x = d3.scaleLog()
                    .range([0, width]);
 
-         var y = d3.scale.linear()
+         var y = d3.scaleLinear()
                    .range([height, 0]);
 
-         var xAxis = d3.svg.axis()
+         var xAxis = d3.axisBottom()
                        .scale(x)
-                       .orient("bottom");
+		       .tickFormat(d3.format(".0s"));
 
-         var yAxis = d3.svg.axis()
-                       .scale(y)
-                       .orient("left");
+         var yAxis = d3.axisLeft()
+                       .scale(y);
 
-         var line = d3.svg.line()
+         var line = d3.line()
                       .x(function(d) { return x(d.size); })
                       .y(function(d) { return y(d.elmtspersec); });
 
@@ -60,12 +59,15 @@
              if (error) throw error;
 
              x.domain(d3.extent(data, function(d) { return d.size; }));
-             y.domain(d3.extent(data, function(d) { return d.elmtspersec; }));
+             y.domain([0, d3.max(data, function(d) { return d.elmtspersec; })]);
+
+	     xAxis.ticks(5);
 
              svg.append("g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + height + ")")
-                .call(xAxis);
+                .call(xAxis)
+	     ;
 
              svg.append("g")
                 .attr("class", "y axis")
@@ -82,7 +84,7 @@
                               .key(function(d) { return d.name; })
                               .entries(data);
 
-             var color = d3.scale.category10();
+             var color = d3.scaleOrdinal(d3.schemeCategory10);
 
              dataNest.forEach(function(d) {
                  svg.append("path")
