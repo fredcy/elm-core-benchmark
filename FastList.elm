@@ -1,4 +1,4 @@
-module FastList exposing (map)
+module FastList exposing (..)
 
 import List exposing (reverse)
 
@@ -35,15 +35,44 @@ mapFast f xs ctr =
                    )
 
 
+mapUnrolled : (a -> b) -> List a -> List b
+mapUnrolled f xs =
+    case xs of
+        [] ->
+            []
+
+        [ x ] ->
+            [ f x ]
+
+        [ x, y ] ->
+            [ f x, f y ]
+
+        [ x, y, z ] ->
+            [ f x, f y, f z ]
+
+        x :: y :: z :: w :: tl ->
+            f x :: f y :: f z :: f w :: mapUnrolled f tl
+
+
 mapTailRec : (a -> b) -> List a -> List b
 mapTailRec f xs =
     let
         mapAcc f acc ys =
             case ys of
                 [] ->
-                    []
+                    acc
 
                 hd :: tl ->
                     mapAcc f (f hd :: acc) tl
     in
         mapAcc f [] xs |> reverse
+
+
+mapSimple : (a -> b) -> List a -> List b
+mapSimple f xs =
+    case xs of
+        [] ->
+            []
+
+        hd :: tl ->
+            f hd :: mapSimple f tl

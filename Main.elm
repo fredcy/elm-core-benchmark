@@ -21,18 +21,14 @@ main =
         , view = view
         , subscriptions = subscriptions
         }
-        |> Benchmark.run
-            [ makeSuite 10
-            , makeSuite 100
-            , makeSuite 10000
-            , makeSuite 1000000
-              --, makeSuite 10000000
-            ]
+        |> Benchmark.run (List.map makeSuite [ 10, 100, 1000, 10000, 100000, 1000000 ])
 
 
 makeSuite : Int -> Benchmark.Suite
 makeSuite size =
     let
+        -- build the test data outside of the function under test so that it
+        -- doesn't affect the timimg
         testdata =
             [1..size]
 
@@ -46,10 +42,25 @@ makeSuite size =
         testMap' : () -> List Int
         testMap' =
             \() -> FastList.map fn testdata
+
+        testMapSimple : () -> List Int
+        testMapSimple =
+            \() -> FastList.mapSimple fn testdata
+
+        testTailRec : () -> List Int
+        testTailRec =
+            \() -> FastList.mapTailRec fn testdata
+
+        testUnrolled : () -> List Int
+        testUnrolled =
+            \() -> FastList.mapUnrolled fn testdata
     in
         Benchmark.suite ("size " ++ toString size)
-            [ Benchmark.bench "map" testMap
-            , Benchmark.bench "map'" testMap'
+            [ Benchmark.bench "original" testMap
+            , Benchmark.bench "fast" testMap'
+            , Benchmark.bench "naive" testMapSimple
+            , Benchmark.bench "tail rec" testTailRec
+            , Benchmark.bench "unrolled" testUnrolled
             ]
 
 
