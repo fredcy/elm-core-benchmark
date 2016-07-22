@@ -16,7 +16,13 @@ main =
         , update = \_ () -> ()
         , view = \() -> Html.text "Done."
         }
-        |> Benchmark.run (List.map makeSuite [ 10, 100, 1000, 10000, 100000, 1000000 ])
+        |> Benchmark.run (List.map makeSuite sizes)
+
+
+sizes : List Int
+sizes =
+    --[0..20] |> List.map ((^) 2)
+    [18] |> List.map ((^) 2)
 
 
 makeSuite : Int -> Benchmark.Suite
