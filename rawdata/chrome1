@@ -1,0 +1,54 @@
+Starting size 1 suite.
+elm.js:7325 original x 3,981,057 ops/sec ±4.99% (51 runs sampled)
+elm.js:7325 fast x 10,426,769 ops/sec ±7.31% (48 runs sampled)
+elm.js:7325 naive x 10,990,861 ops/sec ±7.97% (48 runs sampled)
+elm.js:7325 tail rec x 2,873,895 ops/sec ±6.65% (54 runs sampled)
+elm.js:7325 unrolled x 13,006,821 ops/sec ±8.38% (49 runs sampled)
+elm.js:7327 Done with size 1 suite.
+elm.js:7323 Starting size 10 suite.
+elm.js:7325 original x 1,265,160 ops/sec ±8.49% (48 runs sampled)
+elm.js:7325 fast x 1,900,169 ops/sec ±9.67% (43 runs sampled)
+elm.js:7325 naive x 1,569,074 ops/sec ±11.37% (45 runs sampled)
+elm.js:7325 tail rec x 666,359 ops/sec ±8.88% (48 runs sampled)
+elm.js:7325 unrolled x 1,999,744 ops/sec ±8.48% (42 runs sampled)
+elm.js:7327 Done with size 10 suite.
+elm.js:7323 Starting size 100 suite.
+elm.js:7325 original x 154,116 ops/sec ±8.82% (46 runs sampled)
+elm.js:7325 fast x 178,896 ops/sec ±9.57% (43 runs sampled)
+elm.js:7325 naive x 151,481 ops/sec ±8.84% (47 runs sampled)
+elm.js:7325 tail rec x 79,292 ops/sec ±9.50% (45 runs sampled)
+elm.js:7325 unrolled x 185,947 ops/sec ±9.63% (42 runs sampled)
+elm.js:7327 Done with size 100 suite.
+elm.js:7323 Starting size 1000 suite.
+elm.js:7325 original x 16,157 ops/sec ±9.17% (46 runs sampled)
+elm.js:7325 fast x 18,483 ops/sec ±9.46% (45 runs sampled)
+elm.js:7325 naive x 15,443 ops/sec ±8.93% (48 runs sampled)
+elm.js:7325 tail rec x 8,688 ops/sec ±8.79% (44 runs sampled)
+elm.js:7325 unrolled x 19,144 ops/sec ±9.00% (45 runs sampled)
+elm.js:7327 Done with size 1000 suite.
+elm.js:7323 Starting size 10000 suite.
+elm.js:7325 original x 1,668 ops/sec ±1.88% (13 runs sampled)
+elm.js:7325 fast x 1,127 ops/sec ±2.10% (10 runs sampled)
+elm.js:7329 Error in size 10000 suite:  RangeError: Maximum call stack size exceeded(…)
+elm.js:7325 naive: 
+elm.js:7325 tail rec x 901 ops/sec ±7.81% (46 runs sampled)
+elm.js:7325 unrolled x 1,880 ops/sec ±7.93% (44 runs sampled)
+elm.js:7327 Done with size 10000 suite.
+elm.js:7323 Starting size 100000 suite.
+elm.js:7325 original x 145 ops/sec ±8.41% (45 runs sampled)
+elm.js:7325 fast x 88.21 ops/sec ±5.35% (42 runs sampled)
+elm.js:7329 Error in size 100000 suite:  RangeError: Maximum call stack size exceeded(…)
+elm.js:7325 naive: 
+elm.js:7325 tail rec x 86.76 ops/sec ±6.22% (42 runs sampled)
+elm.js:7329 Error in size 100000 suite:  RangeError: Maximum call stack size exceeded(…)
+elm.js:7325 unrolled: 
+elm.js:7327 Done with size 100000 suite.
+elm.js:7323 Starting size 1000000 suite.
+elm.js:7325 original x 14.99 ops/sec ±6.42% (24 runs sampled)
+elm.js:7325 fast x 6.81 ops/sec ±11.81% (20 runs sampled)
+elm.js:7329 Error in size 1000000 suite:  RangeError: Maximum call stack size exceeded(…)
+elm.js:7325 naive: 
+elm.js:7325 tail rec x 6.56 ops/sec ±13.77% (21 runs sampled)
+elm.js:7329 Error in size 1000000 suite:  RangeError: Maximum call stack size exceeded(…)
+elm.js:7325 unrolled: 
+elm.js:7327 Done with size 1000000 suite.

@@ -1,0 +1,174 @@
+Starting size 1 suite. elm.js:7323:3
+original x 223,928 ops/sec ±1.26% (12 runs sampled) elm.js:7325:3
+fast x 1,617,162 ops/sec ±1.87% (10 runs sampled) elm.js:7325:3
+naive x 1,036,074 ops/sec ±2.31% (10 runs sampled) elm.js:7325:3
+tail rec x 152,659 ops/sec ±0.41% (12 runs sampled) elm.js:7325:3
+unrolled x 1,331,158 ops/sec ±42.95% (11 runs sampled) elm.js:7325:3
+Done with size 1 suite. elm.js:7327:3
+Starting size 2 suite. elm.js:7323:3
+original x 174,708 ops/sec ±33.98% (12 runs sampled) elm.js:7325:3
+fast x 979,671 ops/sec ±50.93% (11 runs sampled) elm.js:7325:3
+naive x 692,144 ops/sec ±25.83% (8 runs sampled) elm.js:7325:3
+tail rec x 141,712 ops/sec ±2.17% (11 runs sampled) elm.js:7325:3
+unrolled x 1,129,085 ops/sec ±51.60% (11 runs sampled) elm.js:7325:3
+Done with size 2 suite. elm.js:7327:3
+Starting size 4 suite. elm.js:7323:3
+original x 158,315 ops/sec ±37.16% (12 runs sampled) elm.js:7325:3
+fast x 449,321 ops/sec ±58.16% (10 runs sampled) elm.js:7325:3
+naive x 384,028 ops/sec ±62.46% (10 runs sampled) elm.js:7325:3
+tail rec x 109,041 ops/sec ±40.03% (11 runs sampled) elm.js:7325:3
+unrolled x 415,335 ops/sec ±57.78% (10 runs sampled) elm.js:7325:3
+Done with size 4 suite. elm.js:7327:3
+Starting size 8 suite. elm.js:7323:3
+original x 115,238 ops/sec ±45.77% (10 runs sampled) elm.js:7325:3
+fast x 189,392 ops/sec ±74.35% (9 runs sampled) elm.js:7325:3
+naive x 222,384 ops/sec ±60.53% (9 runs sampled) elm.js:7325:3
+tail rec x 93,811 ops/sec ±56.02% (9 runs sampled) elm.js:7325:3
+unrolled x 202,660 ops/sec ±63.94% (8 runs sampled) elm.js:7325:3
+Done with size 8 suite. elm.js:7327:3
+Starting size 16 suite. elm.js:7323:3
+original x 84,135 ops/sec ±42.03% (10 runs sampled) elm.js:7325:3
+fast x 104,242 ops/sec ±62.27% (9 runs sampled) elm.js:7325:3
+naive x 125,923 ops/sec ±45.58% (9 runs sampled) elm.js:7325:3
+tail rec x 50,111 ops/sec ±62.38% (9 runs sampled) elm.js:7325:3
+unrolled x 95,254 ops/sec ±67.61% (9 runs sampled) elm.js:7325:3
+Done with size 16 suite. elm.js:7327:3
+Starting size 32 suite. elm.js:7323:3
+original x 44,309 ops/sec ±57.40% (10 runs sampled) elm.js:7325:3
+fast x 45,188 ops/sec ±58.24% (8 runs sampled) elm.js:7325:3
+naive x 43,578 ops/sec ±78.73% (7 runs sampled) elm.js:7325:3
+tail rec x 26,898 ops/sec ±63.28% (9 runs sampled) elm.js:7325:3
+unrolled x 95,447 ops/sec ±10.97% (8 runs sampled) elm.js:7325:3
+Done with size 32 suite. elm.js:7327:3
+Starting size 64 suite. elm.js:7323:3
+original x 25,705 ops/sec ±51.33% (10 runs sampled) elm.js:7325:3
+fast x 23,623 ops/sec ±56.80% (7 runs sampled) elm.js:7325:3
+naive x 21,721 ops/sec ±49.96% (8 runs sampled) elm.js:7325:3
+tail rec x 19,251 ops/sec ±65.45% (8 runs sampled) elm.js:7325:3
+unrolled x 27,390 ops/sec ±65.47% (7 runs sampled) elm.js:7325:3
+Done with size 64 suite. elm.js:7327:3
+Starting size 128 suite. elm.js:7323:3
+original x 15,666 ops/sec ±66.77% (9 runs sampled) elm.js:7325:3
+fast x 12,640 ops/sec ±51.53% (7 runs sampled) elm.js:7325:3
+naive x 12,262 ops/sec ±57.26% (7 runs sampled) elm.js:7325:3
+tail rec x 6,230 ops/sec ±65.86% (8 runs sampled) elm.js:7325:3
+unrolled x 13,130 ops/sec ±35.13% (7 runs sampled) elm.js:7325:3
+Done with size 128 suite. elm.js:7327:3
+Starting size 256 suite. elm.js:7323:3
+original x 7,196 ops/sec ±75.87% (9 runs sampled) elm.js:7325:3
+fast x 7,118 ops/sec ±47.29% (7 runs sampled) elm.js:7325:3
+naive x 12,678 ops/sec ±37.18% (7 runs sampled) elm.js:7325:3
+tail rec x 4,480 ops/sec ±48.91% (7 runs sampled) elm.js:7325:3
+unrolled x 10,671 ops/sec ±15.29% (7 runs sampled) elm.js:7325:3
+Done with size 256 suite. elm.js:7327:3
+Starting size 512 suite. elm.js:7323:3
+original x 3,892 ops/sec ±64.53% (8 runs sampled) elm.js:7325:3
+fast x 4,001 ops/sec ±27.59% (7 runs sampled) elm.js:7325:3
+naive x 4,272 ops/sec ±52.26% (7 runs sampled) elm.js:7325:3
+tail rec x 1,833 ops/sec ±40.37% (7 runs sampled) elm.js:7325:3
+unrolled x 3,549 ops/sec ±32.30% (7 runs sampled) elm.js:7325:3
+Done with size 512 suite. elm.js:7327:3
+Starting size 1024 suite. elm.js:7323:3
+original x 1,587 ops/sec ±64.39% (8 runs sampled) elm.js:7325:3
+fast x 1,309 ops/sec ±29.14% (7 runs sampled) elm.js:7325:3
+naive x 1,602 ops/sec ±65.25% (8 runs sampled) elm.js:7325:3
+tail rec x 767 ops/sec ±10.98% (7 runs sampled) elm.js:7325:3
+unrolled x 1,331 ops/sec ±40.74% (7 runs sampled) elm.js:7325:3
+Done with size 1024 suite. elm.js:7327:3
+Starting size 2048 suite. elm.js:7323:3
+original x 972 ops/sec ±75.48% (8 runs sampled) elm.js:7325:3
+fast x 603 ops/sec ±68.97% (7 runs sampled) elm.js:7325:3
+naive x 728 ops/sec ±12.65% (6 runs sampled) elm.js:7325:3
+tail rec x 474 ops/sec ±33.80% (7 runs sampled) elm.js:7325:3
+unrolled x 742 ops/sec ±11.73% (6 runs sampled) elm.js:7325:3
+Done with size 2048 suite. elm.js:7327:3
+Starting size 4096 suite. elm.js:7323:3
+original x 357 ops/sec ±8.98% (6 runs sampled) elm.js:7325:3
+fast x 333 ops/sec ±43.37% (7 runs sampled) elm.js:7325:3
+naive x 343 ops/sec ±9.38% (6 runs sampled) elm.js:7325:3
+tail rec x 217 ops/sec ±37.25% (7 runs sampled) elm.js:7325:3
+unrolled x 355 ops/sec ±9.69% (6 runs sampled) elm.js:7325:3
+Done with size 4096 suite. elm.js:7327:3
+Starting size 8192 suite. elm.js:7323:3
+original x 143 ops/sec ±67.02% (7 runs sampled) elm.js:7325:3
+fast x 119 ops/sec ±77.23% (7 runs sampled) elm.js:7325:3
+naive x 197 ops/sec ±68.92% (7 runs sampled) elm.js:7325:3
+tail rec x 146 ops/sec ±3.31% (7 runs sampled) elm.js:7325:3
+unrolled x 206 ops/sec ±55.10% (8 runs sampled) elm.js:7325:3
+Done with size 8192 suite. elm.js:7327:3
+Starting size 16384 suite. elm.js:7323:3
+original x 136 ops/sec ±2.80% (7 runs sampled) elm.js:7325:3
+fast x 49.81 ops/sec ±35.74% (7 runs sampled) elm.js:7325:3
+naive x 65.75 ops/sec ±64.37% (6 runs sampled) elm.js:7325:3
+tail rec x 70.82 ops/sec ±4.51% (7 runs sampled) elm.js:7325:3
+unrolled x 95.92 ops/sec ±33.30% (7 runs sampled) elm.js:7325:3
+Done with size 16384 suite. elm.js:7327:3
+Starting size 32768 suite. elm.js:7323:3
+original x 43.47 ops/sec ±78.54% (8 runs sampled) elm.js:7325:3
+fast x 38.79 ops/sec ±5.71% (7 runs sampled) elm.js:7325:3
+naive x 63.03 ops/sec ±4.13% (7 runs sampled) elm.js:7325:3
+tail rec x 24.43 ops/sec ±18.59% (7 runs sampled) elm.js:7325:3
+unrolled x 69.65 ops/sec ±3.81% (7 runs sampled) elm.js:7325:3
+Done with size 32768 suite. elm.js:7327:3
+Starting size 65536 suite. elm.js:7323:3
+original x 31.04 ops/sec ±85.61% (7 runs sampled) elm.js:7325:3
+fast x 14.29 ops/sec ±18.57% (7 runs sampled) elm.js:7325:3
+Error in size 65536 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+naive:  elm.js:7325:3
+tail rec x 14.41 ops/sec ±16.89% (7 runs sampled) elm.js:7325:3
+unrolled x 32.67 ops/sec ±6.72% (7 runs sampled) elm.js:7325:3
+Done with size 65536 suite. elm.js:7327:3
+Starting size 131072 suite. elm.js:7323:3
+original x 20.78 ops/sec ±96.48% (7 runs sampled) elm.js:7325:3
+fast x 7.53 ops/sec ±11.70% (7 runs sampled) elm.js:7325:3
+Error in size 131072 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+naive:  elm.js:7325:3
+tail rec x 5.95 ops/sec ±1.82% (7 runs sampled) elm.js:7325:3
+Error in size 131072 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+unrolled:  elm.js:7325:3
+Done with size 131072 suite. elm.js:7327:3
+Starting size 262144 suite. elm.js:7323:3
+original x 6.60 ops/sec ±27.35% (7 runs sampled) elm.js:7325:3
+fast x 3.26 ops/sec ±13.61% (7 runs sampled) elm.js:7325:3
+Error in size 262144 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+naive:  elm.js:7325:3
+tail rec x 3.34 ops/sec ±17.38% (6 runs sampled) elm.js:7325:3
+Error in size 262144 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+unrolled:  elm.js:7325:3
+Done with size 262144 suite. elm.js:7327:3
+Starting size 524288 suite. elm.js:7323:3
+original x 21.15 ops/sec ±0.52% (7 runs sampled) elm.js:7325:3
+fast x 1.74 ops/sec ±31.15% (6 runs sampled) elm.js:7325:3
+Error in size 524288 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+naive:  elm.js:7325:3
+tail rec x 2.02 ops/sec ±3.52% (6 runs sampled) elm.js:7325:3
+Error in size 524288 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+unrolled:  elm.js:7325:3
+Done with size 524288 suite. elm.js:7327:3
+Starting size 1048576 suite. elm.js:7323:3
+original x 1.58 ops/sec ±79.11% (6 runs sampled) elm.js:7325:3
+fast x 0.86 ops/sec ±21.43% (6 runs sampled) elm.js:7325:3
+Error in size 1048576 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+naive:  elm.js:7325:3
+tail rec x 0.89 ops/sec ±20.71% (6 runs sampled) elm.js:7325:3
+Error in size 1048576 suite:  InternalError: too much recursion
+Stack trace:
+[object Object] elm.js:7329:17
+unrolled:  elm.js:7325:3
+Done with size 1048576 suite. elm.js:7327:3
