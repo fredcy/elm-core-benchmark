@@ -107,8 +107,7 @@ viewStatus done =
 
 sizes : List Int
 sizes =
-    [0..20] |> List.map ((^) 2)
-    --[16..18] |> List.map ((^) 2)
+    [0..10] |> List.map ((^) 4)
 
 
 makeSuite : Int -> Benchmark.Suite

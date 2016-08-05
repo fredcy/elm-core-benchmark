@@ -1,0 +1,48 @@
+{ suite = "size 1", benchmark = "original", freq = 2508482.5315406728, rme = 5.341268760537273, samples = 51 }
+{ suite = "size 1", benchmark = "fast", freq = 4440051.878235227, rme = 6.926310247112648, samples = 44 }
+{ suite = "size 1", benchmark = "naive", freq = 5558135.698082078, rme = 6.746104173931533, samples = 46 }
+{ suite = "size 1", benchmark = "tail rec", freq = 1923876.1828233814, rme = 5.3783846588458255, samples = 54 }
+{ suite = "size 1", benchmark = "unrolled", freq = 5147500.97618118, rme = 7.902174610667813, samples = 45 }
+{ suite = "size 4", benchmark = "original", freq = 1117615.2887411718, rme = 6.411631133759439, samples = 49 }
+{ suite = "size 4", benchmark = "fast", freq = 1726734.3186731213, rme = 7.587282683675486, samples = 41 }
+{ suite = "size 4", benchmark = "naive", freq = 1613519.4709772223, rme = 7.775215227047181, samples = 32 }
+{ suite = "size 4", benchmark = "tail rec", freq = 706109.3247588424, rme = 6.44642504993983, samples = 48 }
+{ suite = "size 4", benchmark = "unrolled", freq = 1845102.29147571, rme = 7.162601809740209, samples = 33 }
+{ suite = "size 16", benchmark = "original", freq = 373949.7674249086, rme = 7.676566581972548, samples = 48 }
+{ suite = "size 16", benchmark = "fast", freq = 454755.25711256405, rme = 8.439789999588873, samples = 30 }
+{ suite = "size 16", benchmark = "naive", freq = 419600.5917159764, rme = 10.334924575526442, samples = 31 }
+{ suite = "size 16", benchmark = "tail rec", freq = 249262.2020431328, rme = 8.077560686447057, samples = 36 }
+{ suite = "size 16", benchmark = "unrolled", freq = 457658.34967029054, rme = 9.010381910864771, samples = 29 }
+{ suite = "size 64", benchmark = "original", freq = 103969.28982725528, rme = 6.791471143822658, samples = 37 }
+{ suite = "size 64", benchmark = "fast", freq = 115136.11615245008, rme = 10.181960327184578, samples = 26 }
+{ suite = "size 64", benchmark = "naive", freq = 107432.1944346601, rme = 9.063944841015227, samples = 25 }
+{ suite = "size 64", benchmark = "tail rec", freq = 67567.0423630004, rme = 9.756435223414634, samples = 38 }
+{ suite = "size 64", benchmark = "unrolled", freq = 117894.73684210525, rme = 8.579229982943799, samples = 28 }
+{ suite = "size 256", benchmark = "original", freq = 25909.291149379256, rme = 8.135920350167337, samples = 47 }
+{ suite = "size 256", benchmark = "fast", freq = 28713.89546530687, rme = 8.896859220972143, samples = 28 }
+{ suite = "size 256", benchmark = "naive", freq = 26661.810234929882, rme = 9.26328148859207, samples = 30 }
+{ suite = "size 256", benchmark = "tail rec", freq = 17871.510767252632, rme = 9.145528258841239, samples = 33 }
+{ suite = "size 256", benchmark = "unrolled", freq = 28618.59252823632, rme = 10.087905951453338, samples = 27 }
+{ suite = "size 1024", benchmark = "original", freq = 6581.0076793407, rme = 7.825368508812808, samples = 36 }
+{ suite = "size 1024", benchmark = "fast", freq = 7237.1241431646, rme = 9.046515322819221, samples = 37 }
+{ suite = "size 1024", benchmark = "naive", freq = 6572.1139682673265, rme = 8.269697100894748, samples = 32 }
+{ suite = "size 1024", benchmark = "tail rec", freq = 4589.6183758365, rme = 9.244648307307926, samples = 26 }
+{ suite = "size 1024", benchmark = "unrolled", freq = 7156.042439403089, rme = 8.6958129312731, samples = 34 }
+{ suite = "size 4096", benchmark = "original", freq = 1650.5788994406141, rme = 2.038720057182729, samples = 13 }
+{ suite = "size 4096", benchmark = "fast", freq = 1719.940355157923, rme = 4.871252131301975, samples = 13 }
+{ suite = "size 4096", benchmark = "naive", freq = 1643.9492096398033, rme = 5.09199316770154, samples = 13 }
+{ suite = "size 4096", benchmark = "tail rec", freq = 1090.8684475243099, rme = 3.692713837787488, samples = 10 }
+{ suite = "size 4096", benchmark = "unrolled", freq = 1806.1006064930434, rme = 9.916927604221575, samples = 27 }
+{ suite = "size 16384", benchmark = "original", freq = 403.3753709198813, rme = 6.189774562933924, samples = 29 }
+{ suite = "size 16384", benchmark = "fast", freq = 297.184920073986, rme = 10.100142346642919, samples = 31 }
+{ suite = "size 16384", benchmark = "tail rec", freq = 279.9428974855052, rme = 11.064724050249474, samples = 30 }
+{ suite = "size 16384", benchmark = "unrolled", freq = 425.16567690851184, rme = 12.143400351886978, samples = 26 }
+{ suite = "size 65536", benchmark = "original", freq = 98.72611464968155, rme = 8.08601231683723, samples = 31 }
+{ suite = "size 65536", benchmark = "fast", freq = 71.7948717948718, rme = 11.466355116006609, samples = 28 }
+{ suite = "size 65536", benchmark = "tail rec", freq = 72.02904088651125, rme = 8.310677502058802, samples = 29 }
+{ suite = "size 262144", benchmark = "original", freq = 21.64552542767369, rme = 9.564838406418268, samples = 31 }
+{ suite = "size 262144", benchmark = "fast", freq = 14.642181685071078, rme = 20.288807958222456, samples = 20 }
+{ suite = "size 262144", benchmark = "tail rec", freq = 15.020653398422832, rme = 20.32124296345818, samples = 20 }
+{ suite = "size 1048576", benchmark = "original", freq = 5.16246583662314, rme = 12.777688018925737, samples = 17 }
+{ suite = "size 1048576", benchmark = "fast", freq = 4.566210045662101, rme = 13.557541236376732, samples = 15 }
+{ suite = "size 1048576", benchmark = "tail rec", freq = 4.526349822179115, rme = 12.061833703209569, samples = 14 }
