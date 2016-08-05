@@ -5,6 +5,9 @@ build: elm.js
 elm.js: Main.elm FastList.elm
 	elm make Main.elm --output=elm.js
 
+clean:
+	rm elm.js
+
 vendor/elm-benchmark:
 	git clone git@github.com:fredcy/elm-benchmark.git vendor/elm-benchmark
 

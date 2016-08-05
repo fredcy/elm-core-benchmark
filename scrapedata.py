@@ -22,6 +22,15 @@ def scrape(input):
             print "\t".join([str(f) for f in[size, name, opspersec, elmtspersec]])
 
 
+        m = re.search(r'suite = "size (.*?)", benchmark = "(.*?)", freq = (.*?),', line)
+        if m:
+            size = int(m.group(1))
+            name = m.group(2)
+            freq = float(m.group(3))
+            elmtspersec = freq * size
+        print "\t".join([str(f) for f in [size, name, freq, elmtspersec]])
+
+
 if __name__ == "__main__":
     scrape(sys.stdin)
     

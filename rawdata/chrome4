@@ -1,0 +1,9 @@
+{ suite = "size 65536", benchmark = "original", freq = 94.89132870266639, rme = 4.719635139079437, samples = 77 }
+{ suite = "size 65536", benchmark = "fast", freq = 65.97185200980911, rme = 8.104773705347824, samples = 45 }
+{ suite = "size 65536", benchmark = "tail rec", freq = 60.083911655276175, rme = 9.317996556810543, samples = 46 }
+{ suite = "size 131072", benchmark = "original", freq = 44.80562266637383, rme = 3.86386001968477, samples = 51 }
+{ suite = "size 131072", benchmark = "fast", freq = 32.7438676554478, rme = 10.204596586023879, samples = 41 }
+{ suite = "size 131072", benchmark = "tail rec", freq = 29.634065752519408, rme = 11.885997838176236, samples = 41 }
+{ suite = "size 262144", benchmark = "original", freq = 21.89781021897811, rme = 6.390609649918012, samples = 56 }
+{ suite = "size 262144", benchmark = "fast", freq = 15.748031496062993, rme = 10.715845811483772, samples = 34 }
+{ suite = "size 262144", benchmark = "tail rec", freq = 14.397120575884824, rme = 15.454892554800523, samples = 32 }
