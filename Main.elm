@@ -64,11 +64,10 @@ update msg model =
 view : Model -> Html Msg
 view model =
     Html.div []
-        [ Html.h2 [] [ Html.text "results" ]
+        [ viewStatus model.done
+        , Html.h2 [] [ Html.text "results" ]
         , viewResults model.results
-        , Html.h2 [] [ Html.text "errors" ]
         , viewErrors model.errors
-        , viewStatus model.done
         ]
 
 
@@ -79,6 +78,7 @@ viewResults results =
             if result.samples > 0 then
                 Html.li [] [ Html.text (toString result) ]
             else
+                -- if a benchmark errors out it will report 0 samples
                 Html.text ""
     in
         Html.ul [] (List.map viewResult results)
@@ -90,7 +90,13 @@ viewErrors errors =
         viewError error =
             Html.li [] [ Html.text (toString error) ]
     in
-        Html.ul [] (List.map viewError errors)
+        if List.length errors > 0 then
+            Html.div []
+                [ Html.h2 [] [ Html.text "errors" ]
+                , Html.ul [] (List.map viewError errors)
+                ]
+        else
+            Html.text ""
 
 
 viewStatus : Bool -> Html Msg
