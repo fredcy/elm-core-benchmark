@@ -54,6 +54,16 @@ mapUnrolled f xs =
             f x :: f y :: f z :: f w :: mapUnrolled f tl
 
 
+mapUnrolled' : (a -> b) -> List a -> List b
+mapUnrolled' f xs =
+    case xs of
+        x :: y :: z :: w :: tl ->
+            f x :: f y :: f z :: f w :: mapUnrolled f tl
+
+        _ ->
+            mapUnrolled f xs
+
+
 mapUnrolled2 : (a -> b) -> List a -> List b
 mapUnrolled2 f xs =
     case xs of

@@ -43,10 +43,10 @@
                    .range([height, 0]);
 
          var xAxis = d3.axisBottom(x)
-		       .tickFormat(d3.format(".0s"));
+		       .tickFormat(d3.format(".1s"));
 
          var yAxis = d3.axisLeft(y)
-		       .tickFormat(d3.format(".0s"));
+		       .tickFormat(d3.format(".2s"));
 
          var line = d3.line()
                       .x(function(d) { return x(d.size); })
@@ -62,9 +62,10 @@
              if (error) throw error;
 
              x.domain(d3.extent(data, function(d) { return d.size; }));
-             y.domain([0, d3.max(data, function(d) { return d.elmtspersec; })]);
+             //y.domain([0, d3.max(data, function(d) { return d.elmtspersec; })]);
+             y.domain(d3.extent(data, function(d) { return d.elmtspersec; }));
 
-	     xAxis.ticks(5);
+	     //xAxis.ticks(5);
 
              svg.append("g")
                 .attr("transform", "translate(0," + height + ")")

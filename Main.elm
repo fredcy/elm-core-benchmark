@@ -114,7 +114,23 @@ viewStatus done =
 sizes : List Int
 sizes =
     --[0..10] |> List.map ((^) 4)
-    [0..16] |> List.map ((^) 2)
+    --[0..16] |> List.map ((^) 2)
+     makeSizes 1.9 20000
+
+
+makeSizes base atLeast =
+    let
+        make n acc =
+            let
+                v =
+                    round (base ^ n)
+            in
+                if v >= atLeast then
+                    List.reverse (v :: acc)
+                else
+                    make (n + 1) (v :: acc)
+    in
+        make 0 []
 
 
 makeSuite : Int -> Benchmark.Suite
@@ -140,8 +156,27 @@ makeSuite size =
     in
         Benchmark.suiteWithOptions options
             ("size " ++ toString size)
-            [ makeBench "simple" FastList.mapSimple
-            , makeBench "unrolled2" FastList.mapUnrolled2
-            , makeBench "unrolled4" FastList.mapUnrolled
-            , makeBench "unrolled8" FastList.mapUnrolled8
-            ]
+            (List.map (\( n, t ) -> makeBench n t) unrolledAlternatives)
+
+
+type alias MapFn =
+    (Int -> Int) -> List Int -> List Int
+
+
+basicAlternatives : List ( String, MapFn )
+basicAlternatives =
+    [ ( "original", List.map )
+    , ( "fast", FastList.map )
+    , ( "naive", FastList.mapSimple )
+    , ( "tail rec", FastList.mapTailRec )
+    , ( "unrolled", FastList.mapUnrolled )
+    ]
+
+
+unrolledAlternatives : List ( String, MapFn )
+unrolledAlternatives =
+    [ ( "simple", FastList.mapSimple )
+    , ( "unrolled2", FastList.mapUnrolled2 )
+    , ( "unrolled4", FastList.mapUnrolled )
+    , ( "unrolled8", FastList.mapUnrolled8 )
+    ]
