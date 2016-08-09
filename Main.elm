@@ -113,7 +113,8 @@ viewStatus done =
 
 sizes : List Int
 sizes =
-    [0..10] |> List.map ((^) 4)
+    --[0..10] |> List.map ((^) 4)
+    [0..16] |> List.map ((^) 2)
 
 
 makeSuite : Int -> Benchmark.Suite
@@ -135,13 +136,12 @@ makeSuite size =
                 defaults =
                     Benchmark.defaultOptions
             in
-                { defaults | maxTime = 10 }
+                { defaults | maxTime = 5 }
     in
         Benchmark.suiteWithOptions options
             ("size " ++ toString size)
-            [ makeBench "original" List.map
-            , makeBench "fast" FastList.map
-            , makeBench "naive" FastList.mapSimple
-            , makeBench "tail rec" FastList.mapTailRec
-            , makeBench "unrolled" FastList.mapUnrolled
+            [ makeBench "simple" FastList.mapSimple
+            , makeBench "unrolled2" FastList.mapUnrolled2
+            , makeBench "unrolled4" FastList.mapUnrolled
+            , makeBench "unrolled8" FastList.mapUnrolled8
             ]
