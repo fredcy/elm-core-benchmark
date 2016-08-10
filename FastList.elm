@@ -107,6 +107,48 @@ mapUnrolled8 f xs =
             f z :: f y :: f x :: f w :: f v :: f u :: f t :: f s :: mapUnrolled8 f tl
 
 
+mapUnrolled12 f xs =
+    case xs of
+        [] ->
+            []
+
+        [ z ] ->
+            [ f z ]
+
+        [ z, y ] ->
+            [ f z, f y ]
+
+        [ z, y, x ] ->
+            [ f z, f y, f x ]
+
+        [ z, y, x, w ] ->
+            [ f z, f y, f x, f w ]
+
+        [ z, y, x, w, v ] ->
+            [ f z, f y, f x, f w, f v ]
+
+        [ z, y, x, w, v, u ] ->
+            [ f z, f y, f x, f w, f v, f u ]
+
+        [ z, y, x, w, v, u, t ] ->
+            [ f z, f y, f x, f w, f v, f u, f t ]
+
+        [ z, y, x, w, v, u, t, s ] ->
+            [ f z, f y, f x, f w, f v, f u, f t, f s ]
+
+        [ z, y, x, w, v, u, t, s, r ] ->
+            [ f z, f y, f x, f w, f v, f u, f t, f s, f r ]
+
+        [ z, y, x, w, v, u, t, s, r, q ] ->
+            [ f z, f y, f x, f w, f v, f u, f t, f s, f r, f q ]
+
+        [ z, y, x, w, v, u, t, s, r, q, p ] ->
+            [ f z, f y, f x, f w, f v, f u, f t, f s, f r, f q, f p ]
+
+        z :: y :: x :: w :: v :: u :: t :: s :: r :: q :: p :: o :: tl ->
+            f z :: f y :: f x :: f w :: f v :: f u :: f t :: f s :: f r :: f q :: f p :: f o :: mapUnrolled12 f tl
+
+
 mapTailRec : (a -> b) -> List a -> List b
 mapTailRec f xs =
     let

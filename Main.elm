@@ -1,7 +1,8 @@
-module Main exposing (main)
+port module Main exposing (main)
 
 import Html exposing (Html)
 import Html.App
+import String
 import Task
 import Benchmark
 import FastList
@@ -19,6 +20,60 @@ type Msg
     = Started ()
     | Event Benchmark.Event
     | Error Benchmark.Error
+
+
+type alias ChartDatum =
+    { size : Int
+    , name : String
+    , elmtspersec : Float
+    }
+
+
+{-| Send results to d3.js charting code
+-}
+port chart : List ChartDatum -> Cmd msg
+
+
+{-| Extract size from suite name. E.g. "suite 17" -> 17
+-}
+sizeFromSuitename : String -> Int
+sizeFromSuitename name =
+    let
+        words =
+            String.split " " name
+
+        size =
+            case words of
+                [ _, sizeStr ] ->
+                    String.toInt sizeStr |> Result.withDefault 0
+
+                _ ->
+                    0
+    in
+        size
+
+
+{-| Convert benchmark results to format expected by the JS code doing the
+charting. Ignore those with samples == 0 as they are error cases.
+-}
+chartFromResults : List Benchmark.Result -> List ChartDatum
+chartFromResults results =
+    let
+        convert { suite, benchmark, freq, samples } =
+            if samples == 0 then
+                Nothing
+            else
+                let
+                    size =
+                        sizeFromSuitename suite
+                in
+                    Just
+                        { size = size
+                        , name = benchmark
+                        , elmtspersec = toFloat size * freq
+                        }
+    in
+        List.filterMap convert results
 
 
 main =
@@ -46,7 +101,11 @@ update msg model =
                     { model | platform = Just platform } ! []
 
                 Benchmark.Cycle result ->
-                    { model | results = model.results ++ [ result ] } ! []
+                    let
+                        resultsNew =
+                            model.results ++ [ result ]
+                    in
+                        { model | results = resultsNew } ! [ chart (chartFromResults resultsNew) ]
 
                 Benchmark.Complete result ->
                     model ! []
@@ -115,7 +174,7 @@ sizes : List Int
 sizes =
     --[0..10] |> List.map ((^) 4)
     --[0..16] |> List.map ((^) 2)
-     makeSizes 1.9 20000
+    makeSizes 1.9 20000
 
 
 makeSizes base atLeast =
@@ -179,4 +238,5 @@ unrolledAlternatives =
     , ( "unrolled2", FastList.mapUnrolled2 )
     , ( "unrolled4", FastList.mapUnrolled )
     , ( "unrolled8", FastList.mapUnrolled8 )
+    , ( "unrolled12", FastList.mapUnrolled12 )
     ]
