@@ -34,7 +34,9 @@ suiteSize size =
              , makeTest "tail rec" FastList.mapTailRec
              ]
                 ++ if (size < 5000) then
-                    [ makeTest "unrolled" FastList.mapUnrolled
+                    [ makeTest "unrolled 4" FastList.mapUnrolled
+                    , makeTest "unrolled 8" FastList.mapUnrolled8
+                    , makeTest "unrolled 12" FastList.mapUnrolled12
                     , makeTest "naive" FastList.mapSimple
                     ]
                    else

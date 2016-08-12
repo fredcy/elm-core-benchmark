@@ -37,7 +37,8 @@ function graphat(selector, data) {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     x.domain(d3.extent(data, function(d) { return d.size; }));
-    y.domain(d3.extent(data, function(d) { return d.elmtspersec; }));
+    //y.domain(d3.extent(data, function(d) { return d.elmtspersec; }));
+    y.domain([0, d3.max(data, function(d) { return d.elmtspersec; })]);
 
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -102,10 +103,10 @@ function graphat(selector, data) {
         .append('g')
         .attr('class', 'legend')
         .attr('transform', function(d, i) {
-            var height = legendRectSize + legendSpacing;
+            var itemheight = legendRectSize + legendSpacing;
             var offset =  height * color.domain().length / 2;
-            var horz = 5; // -2 * legendRectSize;
-            var vert = i * height; // i * height - offset;
+            var horz = 10; // -2 * legendRectSize;
+            var vert = height - (i + 1) * itemheight - 10; // i * height - offset;
             return 'translate(' + horz + ',' + vert + ')';
         });
 
