@@ -90,4 +90,34 @@ function graphat(selector, data) {
 	    .style("font", "16px sans-serif")
 	    .text(function() { return d.key; });
     });
+
+    // Add legend per http://zeroviscosity.com/d3-js-step-by-step/step-3-adding-a-legend
+
+    var legendRectSize = 16;	// side of colored square
+    var legendSpacing = 4;
+
+    var legend = svg.selectAll('.legend')
+        .data(color.domain())
+        .enter()
+        .append('g')
+        .attr('class', 'legend')
+        .attr('transform', function(d, i) {
+            var height = legendRectSize + legendSpacing;
+            var offset =  height * color.domain().length / 2;
+            var horz = 5; // -2 * legendRectSize;
+            var vert = i * height; // i * height - offset;
+            return 'translate(' + horz + ',' + vert + ')';
+        });
+
+    legend.append('rect')
+        .attr('width', legendRectSize)
+        .attr('height', legendRectSize)
+        .style('fill', color)
+        .style('stroke', color);
+
+    legend.append('text')
+        .attr('x', legendRectSize + legendSpacing)
+        .attr('y', legendRectSize - legendSpacing)
+        .text(function(d) { return d; });
+
 };

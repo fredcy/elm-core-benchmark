@@ -3,7 +3,7 @@ TOOLS = $(HOME)/Documents/elm/elm-tools
 build: elm.js
 
 elm.js: Main.elm FastList.elm
-	elm make Main.elm --output=elm.js
+	elm make Main.elm --output=elm.js --yes
 
 clean:
 	rm elm.js
