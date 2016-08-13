@@ -14,21 +14,37 @@ mapFast f xs ctr =
         [] ->
             []
 
-        [ x ] ->
-            [ f x ]
+        [ s ] ->
+            [ f s ]
 
-        [ x, y ] ->
-            [ f x, f y ]
+        [ s, t ] ->
+            [ f s, f t ]
 
-        [ x, y, z ] ->
-            [ f x, f y, f z ]
+        [ s, t, u ] ->
+            [ f s, f t, f u ]
 
-        x :: y :: z :: w :: tl ->
-            f x
+        [ s, t, u, v ] ->
+            [ f s, f t, f u, f v ]
+
+        [ s, t, u, v, w ] ->
+            [ f s, f t, f u, f v, f w ]
+
+        [ s, t, u, v, w, x ] ->
+            [ f s, f t, f u, f v, f w, f x ]
+
+        [ s, t, u, v, w, x, y ] ->
+            [ f s, f t, f u, f v, f w, f x, f y ]
+
+        s :: t :: u :: v :: w :: x :: y :: z :: tl ->
+            f s
+                :: f t
+                :: f u
+                :: f v
+                :: f w
+                :: f x
                 :: f y
                 :: f z
-                :: f w
-                :: (if ctr < 1000 then
+                :: (if ctr < 500 then
                         mapFast f tl (ctr + 1)
                     else
                         mapTailRec f tl

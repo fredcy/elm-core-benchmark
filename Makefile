@@ -5,6 +5,9 @@ build: elm.js
 elm.js: Main.elm FastList.elm
 	elm make Main.elm --output=elm.js --yes
 
+test: Test.elm
+	elm make Test.elm --output=test.html
+
 clean:
 	rm elm.js
 

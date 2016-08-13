@@ -19,10 +19,11 @@ function graphat(selector, data) {
         .range([height, 0]);
 
     var xAxis = d3.axisBottom(x)
+        .ticks(5)
 	.tickFormat(d3.format(".1s"));
 
     var yAxis = d3.axisLeft(y)
-	.tickFormat(d3.format(".2s"));
+        .tickFormat(d3.format(".2s"));
 
     var line = d3.line()
         .x(function(d) { return x(d.size); })

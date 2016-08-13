@@ -11,7 +11,7 @@ main =
 
 suites : List ElmTest.Test
 suites =
-    [0] ++ ([0..16] |> List.map ((^) 2)) |> List.map suiteSize
+    [0..16] ++ ([5..16] |> List.map ((^) 2)) |> List.map suiteSize
 
 
 suiteSize : Int -> ElmTest.Test

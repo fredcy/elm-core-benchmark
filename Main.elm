@@ -174,7 +174,7 @@ sizes : List Int
 sizes =
     --[0..10] |> List.map ((^) 4)
     --[0..16] |> List.map ((^) 2)
-    makeSizes 1.9 20000
+    makeSizes 1.9 1000000
 
 
 makeSizes base atLeast =
@@ -215,7 +215,7 @@ makeSuite size =
     in
         Benchmark.suiteWithOptions options
             ("size " ++ toString size)
-            (List.map (\( n, t ) -> makeBench n t) unrolledAlternatives)
+            (List.map (\( n, t ) -> makeBench n t) basicAlternatives)
 
 
 type alias MapFn =
@@ -228,7 +228,7 @@ basicAlternatives =
     , ( "fast", FastList.map )
     , ( "naive", FastList.mapSimple )
     , ( "tail rec", FastList.mapTailRec )
-    , ( "unrolled", FastList.mapUnrolled )
+    , ( "unrolled8", FastList.mapUnrolled8 )
     ]
 
 
