@@ -168,7 +168,8 @@ mapUnrolled12 f xs =
 mapTailRec : (a -> b) -> List a -> List b
 mapTailRec f xs =
     let
-        mapAcc f = List.foldl (\hd acc -> f hd :: acc)
+        mapAcc f =
+            List.foldl (\hd acc -> f hd :: acc)
     in
         mapAcc f [] xs |> reverse
 
