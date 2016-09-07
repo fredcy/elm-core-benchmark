@@ -1,6 +1,6 @@
 module FastList exposing (..)
 
-import List exposing (reverse)
+import List exposing (foldl, reverse)
 
 
 map : (a -> b) -> List a -> List b
@@ -167,11 +167,7 @@ mapUnrolled12 f xs =
 
 mapTailRec : (a -> b) -> List a -> List b
 mapTailRec f xs =
-    let
-        mapAcc f =
-            List.foldl (\hd acc -> f hd :: acc)
-    in
-        mapAcc f [] xs |> reverse
+    reverse (foldl (\hd acc -> f hd :: acc) [] xs)
 
 
 mapSimple : (a -> b) -> List a -> List b

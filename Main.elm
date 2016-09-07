@@ -215,7 +215,7 @@ makeSuite size =
     in
         Benchmark.suiteWithOptions options
             ("size " ++ toString size)
-            (List.map (\( n, t ) -> makeBench n t) unrolledAlternatives)
+            (List.map (\( n, t ) -> makeBench n t) basicAlternatives)
 
 
 type alias MapFn =
