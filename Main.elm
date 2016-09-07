@@ -215,7 +215,7 @@ makeSuite size =
     in
         Benchmark.suiteWithOptions options
             ("size " ++ toString size)
-            (List.map (\( n, t ) -> makeBench n t) basicAlternatives)
+            (List.map (\( n, t ) -> makeBench n t) mapTailRecAlternatives)
 
 
 type alias MapFn =
@@ -239,4 +239,11 @@ unrolledAlternatives =
     , ( "unrolled4", FastList.mapUnrolled )
     , ( "unrolled8", FastList.mapUnrolled8 )
     , ( "unrolled12", FastList.mapUnrolled12 )
+    ]
+
+
+mapTailRecAlternatives : List ( String, MapFn )
+mapTailRecAlternatives =
+    [ ( "map foldl", FastList.mapTailRec )
+    , ( "map simple", FastList.mapTailRec' )
     ]

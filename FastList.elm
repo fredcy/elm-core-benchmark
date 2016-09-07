@@ -170,6 +170,20 @@ mapTailRec f xs =
     reverse (foldl (\hd acc -> f hd :: acc) [] xs)
 
 
+mapTailRec' : (a -> b) -> List a -> List b
+mapTailRec' f xs =
+    let
+        mapAcc f acc ys =
+            case ys of
+                [] ->
+                    acc
+
+                hd :: tl ->
+                    mapAcc f (f hd :: acc) tl
+    in
+        mapAcc f [] xs |> reverse
+
+
 mapSimple : (a -> b) -> List a -> List b
 mapSimple f xs =
     case xs of
