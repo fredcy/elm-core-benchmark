@@ -59,11 +59,17 @@ charting. Ignore those with samples == 0 as they are error cases.
 chartFromResults : List Benchmark.Result -> List ChartDatum
 chartFromResults results =
     let
-        convert { suite, benchmark, freq, samples } =
-            if samples == 0 then
+        convert { suite, benchmark, samples } =
+            if samples == [] then
                 Nothing
             else
                 let
+                    stats =
+                        Benchmark.getStats samples
+
+                    freq =
+                        1 / stats.mean
+
                     size =
                         sizeFromSuitename suite
                 in
@@ -134,7 +140,7 @@ viewResults : List Benchmark.Result -> Html Msg
 viewResults results =
     let
         viewResult result =
-            if result.samples > 0 then
+            if result.samples /= [] then
                 Html.li [] [ Html.text (toString result) ]
             else
                 -- if a benchmark errors out it will report 0 samples
@@ -215,7 +221,7 @@ makeSuite size =
     in
         Benchmark.suiteWithOptions options
             ("size " ++ toString size)
-            (List.map (\( n, t ) -> makeBench n t) mapTailRecAlternatives)
+            (List.map (\( n, t ) -> makeBench n t) basicAlternatives)
 
 
 type alias MapFn =
