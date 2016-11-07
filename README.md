@@ -36,3 +36,15 @@ a fixed size. We generate such suites for a range of sizes from 1 up to 2^20
 ![Chrome on MacOS results](assets/chrome_macos.png)
 
 In the chart we can see how the "fast" version (orange line) tracks the unrolled version for smaller lists, then switches at around 4000 elements to track the performance of the tail-recursive version (red line).
+
+## Installation
+
+This application depends on https://github.com/fredcy/elm-benchmark for the `Benchmark` module.
+
+```shell
+git clone https://github.com/fredcy/elm-core-benchmark.git
+cd elm-core-benchmark
+make vendor/benchmark
+make
+open bench.html
+```
