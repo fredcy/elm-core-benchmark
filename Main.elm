@@ -19,7 +19,7 @@ type alias Model =
 type Msg
     = Started ()
     | Event Benchmark.Event
-    | Error Benchmark.Error
+    | Error Benchmark.ErrorInfo
 
 
 type alias ChartDatum =
@@ -94,7 +94,7 @@ main =
 init : ( Model, Cmd Msg )
 init =
     ( Model [] [] Nothing False
-    , Task.perform Error Started (Benchmark.runTask (List.map makeSuite sizes))
+    , Task.perform (\_ -> Debug.crash "runTask failed") Started (Benchmark.runTask (List.map makeSuite sizes))
     )
 
 
