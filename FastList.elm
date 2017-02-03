@@ -70,8 +70,8 @@ mapUnrolled f xs =
             f x :: f y :: f z :: f w :: mapUnrolled f tl
 
 
-mapUnrolled' : (a -> b) -> List a -> List b
-mapUnrolled' f xs =
+mapUnrolled_ : (a -> b) -> List a -> List b
+mapUnrolled_ f xs =
     case xs of
         x :: y :: z :: w :: tl ->
             f x :: f y :: f z :: f w :: mapUnrolled f tl
@@ -170,8 +170,8 @@ mapTailRec f xs =
     reverse (foldl (\hd acc -> f hd :: acc) [] xs)
 
 
-mapTailRec' : (a -> b) -> List a -> List b
-mapTailRec' f xs =
+mapTailRec_ : (a -> b) -> List a -> List b
+mapTailRec_ f xs =
     let
         mapAcc f acc ys =
             case ys of

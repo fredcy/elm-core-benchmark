@@ -1,7 +1,6 @@
 port module Main exposing (main)
 
 import Html exposing (Html)
-import Html.App
 import String
 import Task
 import Benchmark
@@ -83,7 +82,7 @@ chartFromResults results =
 
 
 main =
-    Html.App.program
+    Html.program
         { init = init
         , update = update
         , view = view
@@ -94,7 +93,7 @@ main =
 init : ( Model, Cmd Msg )
 init =
     ( Model [] [] Nothing False
-    , Task.perform (\_ -> Debug.crash "runTask failed") Started (Benchmark.runTask (List.map makeSuite sizes))
+    , Task.perform Started (Benchmark.runTask (List.map makeSuite sizes))
     )
 
 
@@ -204,7 +203,7 @@ makeSuite size =
         -- build the test data outside of the function under test so that it
         -- doesn't affect the timimg
         testdata =
-            [1..size]
+            List.range 1 size
 
         mapFn =
             ((+) 1)
@@ -251,5 +250,5 @@ unrolledAlternatives =
 mapTailRecAlternatives : List ( String, MapFn )
 mapTailRecAlternatives =
     [ ( "map foldl", FastList.mapTailRec )
-    , ( "map simple", FastList.mapTailRec' )
+    , ( "map simple", FastList.mapTailRec_ )
     ]
