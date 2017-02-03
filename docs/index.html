@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Benchmark</title>
+        <link rel="stylesheet" type="text/css" href="chart.css">
+    </head>
+    <body>
+        <!-- benchmark.js requires lodash -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/benchmarkjs/2.1.0/benchmark.js"></script>
+
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="chart.js"></script>
+
+        <script type="text/javascript" src="elm.js"></script>
+
+        <div id="chart"></div>
+        
+        <div id="output"></div>
+
+        <script type="text/javascript">
+         app = Elm.Main.embed(document.getElementById("output"));
+
+         app.ports.chart.subscribe(function(data) {
+             graphat("#chart", data);
+         });
+        </script>
+    </body>
+</html>
